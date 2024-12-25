@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Container, CssBaseline, Box, ThemeProvider, createTheme, Typography } from '@mui/material';
 import './App.css';
 import Header from './components/Header';
 import MainContent from './components/MainContent';
-import RandomItem from './components/RandomItem';
 import Footer from './components/Footer';
 import Notes from './components/Notes';
 import Etudiants from './components/Etudiants';
@@ -28,8 +27,6 @@ const theme = createTheme({
   },
 });
 
-
-
 function App() {
   const [selectedMenu, setSelectedMenu] = useState('');
 
@@ -49,8 +46,6 @@ function App() {
     }
   };
 
-
-
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -64,10 +59,9 @@ function App() {
         <Box mb={4} p={2}>
           {renderContent()}
         </Box>
-        <Box mb={4}>
+        <Box mb={4} p={2}>
           <MainContent />
         </Box>
-
         <Box mt={4}>
           <Footer />
         </Box>
