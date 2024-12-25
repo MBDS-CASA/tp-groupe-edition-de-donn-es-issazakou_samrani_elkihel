@@ -42,6 +42,12 @@ function Etudiants() {
     }, 1000);
   }, []);
 
+  // Vérification si le prénom commence par un caractère interdit
+  const isFirstnameValid = (firstname) => {
+    const forbiddenChars = ['-', '@'];
+    return !forbiddenChars.some((char) => firstname.startsWith(char));
+  };
+
   const handleAdd = () => {
     if (currentEtudiant.firstname.trim() === '' || currentEtudiant.lastname.trim() === '') {
       setSnackbar({
@@ -51,6 +57,16 @@ function Etudiants() {
       });
       return;
     }
+
+    if (!isFirstnameValid(currentEtudiant.firstname)) {
+      setSnackbar({
+        open: true,
+        message: 'Failed to add: First name cannot start with "-" or "@"',
+        severity: 'error',
+      });
+      return;
+    }
+
     const newEtudiant = {
       id: uuidv4(),
       firstname: currentEtudiant.firstname,
@@ -79,6 +95,16 @@ function Etudiants() {
       });
       return;
     }
+
+    if (!isFirstnameValid(currentEtudiant.firstname)) {
+      setSnackbar({
+        open: true,
+        message: 'Failed to update: First name cannot start with "-" or "@"',
+        severity: 'error',
+      });
+      return;
+    }
+
     setEtudiantsData(
         etudiantsData.map((item) =>
             item.id === currentEtudiant.id ? currentEtudiant : item
@@ -106,7 +132,7 @@ function Etudiants() {
   };
 
   const columns = [
-    { field: 'id', headerName: 'ID', flex: 1 }, // Ajout de la colonne ID
+    { field: 'id', headerName: 'ID', flex: 1 },
     { field: 'firstname', headerName: 'First Name', flex: 1 },
     { field: 'lastname', headerName: 'Last Name', flex: 1 },
     {
