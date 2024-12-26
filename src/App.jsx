@@ -9,6 +9,8 @@ import Etudiants from './components/Etudiants';
 import Matieres from './components/Matieres';
 import APropos from './components/APropos';
 import Menu from './components/Menu';
+import AppRoutes from "./components/Routes.jsx";
+import {BrowserRouter} from "react-router";
 
 const theme = createTheme({
   palette: {
@@ -47,26 +49,29 @@ function App() {
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Box mb={4}>
-        <Header />
-      </Box>
-      <Box mb={4}>
-        <Menu selected={selectedMenu} onMenuClick={setSelectedMenu} />
-      </Box>
-      <Container>
-        <Box mb={4} p={2}>
-          {renderContent()}
-        </Box>
-        <Box mb={4} p={2}>
-          <MainContent />
-        </Box>
-        <Box mt={4}>
-          <Footer />
-        </Box>
-      </Container>
-    </ThemeProvider>
+      <ThemeProvider theme={theme}>
+        <BrowserRouter>
+          <CssBaseline />
+          <Box mb={4}>
+            <Header />
+          </Box>
+          <Box mb={4}>
+            <Menu selected={selectedMenu} onMenuClick={setSelectedMenu} />
+          </Box>
+          <Container>
+            <Box mb={4} p={2}>
+              {renderContent()}
+            </Box>
+            <Box mb={4} p={2}>
+              <MainContent />
+            </Box>
+            <Box mt={4}>
+              <Footer />
+            </Box>
+          </Container>
+          <AppRoutes/>
+        </BrowserRouter>
+      </ThemeProvider>
   );
 }
 
