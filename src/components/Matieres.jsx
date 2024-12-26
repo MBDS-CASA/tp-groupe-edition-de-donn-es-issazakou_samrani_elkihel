@@ -3,7 +3,9 @@ import { Box, CircularProgress, Typography, IconButton, TextField, Button, Snack
 import { DataGrid } from '@mui/x-data-grid';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import data from '../data.json'; // Adjust the data source as needed
+import data from '../data.json';
+import { CSVLink } from 'react-csv';
+import DownloadIcon from '@mui/icons-material/Download';
 
 function Matieres() {
   const [loading, setLoading] = useState(true);
@@ -94,7 +96,7 @@ function Matieres() {
       <Typography variant="h5" component="div" gutterBottom>
         Matières
       </Typography>
-      <Box mb={2}>
+      <Box mb={2} display="flex" justifyContent="space-between" alignItems="center">
         <TextField
           label="Course"
           value={currentMatiere.course}
@@ -114,6 +116,11 @@ function Matieres() {
             Add
           </Button>
         )}
+        <CSVLink data={matieresData} filename="matieres.csv" style={{ textDecoration: 'none' }}>
+          <Button variant="text" color="primary" startIcon={<DownloadIcon />}>
+            Télécharger CSV
+          </Button>
+        </CSVLink>
       </Box>
       <DataGrid
         rows={matieresData}

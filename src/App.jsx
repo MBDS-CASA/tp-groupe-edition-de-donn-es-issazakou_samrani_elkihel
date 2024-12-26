@@ -9,6 +9,7 @@ import Etudiants from './components/Etudiants';
 import Matieres from './components/Matieres';
 import APropos from './components/APropos';
 import Menu from './components/Menu';
+import Statistics from "./components/Statistics.jsx";
 
 const theme = createTheme({
   palette: {
@@ -61,6 +62,9 @@ function App() {
         </Box>
         <Box mb={4} p={2}>
           <MainContent />
+        </Box>
+        <Box mb={4} p={2}>
+          <Statistics/>
         </Box>
         <Box mt={4}>
           <Footer />
