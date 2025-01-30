@@ -5,12 +5,17 @@ import NotesIcon from '@mui/icons-material/Notes';
 import PeopleIcon from '@mui/icons-material/People';
 import ClassIcon from '@mui/icons-material/Class';
 import InfoIcon from '@mui/icons-material/Info';
+import DashboardIcon from '@mui/icons-material/Dashboard';
 
 const MENU_ITEMS = [
     { text: 'Notes', icon: <NotesIcon />, path: '/notes' },
     { text: 'Etudiants', icon: <PeopleIcon />, path: '/students' },
     { text: 'Matières', icon: <ClassIcon />, path: '/matieres' },
     { text: 'A propos', icon: <InfoIcon />, path: '/apropos' },
+    { text: 'Admin Dashboard', icon: <DashboardIcon />, path: '/admin-dashboard' },
+    { text: 'School Member Dashboard', icon: <DashboardIcon />, path: '/Schoolmenber' },
+    { text: 'Student Dashboard', icon: <DashboardIcon />, path: '/student' },
+
 ];
 
 function Menu({ selected, onMenuClick }) {

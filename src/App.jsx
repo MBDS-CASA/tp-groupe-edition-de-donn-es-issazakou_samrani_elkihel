@@ -10,7 +10,10 @@ import Matieres from './components/Matieres';
 import APropos from './components/APropos';
 import Menu from './components/Menu';
 import AppRoutes from "./components/Routes.jsx";
-import {BrowserRouter} from "react-router";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import AdminDashboard from './components/AdminDashboard';
+import SchoolMemberDashboard from "./components/SchoolMemberDashboard.jsx";
+import StudentDashboard from "./components/StudentDashboard.jsx";
 
 const theme = createTheme({
   palette: {
@@ -43,6 +46,12 @@ function App() {
         return <Matieres />;
       case 'A propos':
         return <APropos />;
+      case 'Admin Dashboard':
+        return <AdminDashboard />;
+      case 'School Member Dashboard':
+        return <SchoolMemberDashboard />;
+      case 'Student Dashboard':
+        return <StudentDashboard />;
       default:
         return <Typography variant="h6">Selectionner un menu</Typography>;
     }
