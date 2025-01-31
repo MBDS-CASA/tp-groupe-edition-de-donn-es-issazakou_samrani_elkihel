@@ -10,10 +10,12 @@ import Matieres from './components/Matieres';
 import APropos from './components/APropos';
 import Menu from './components/Menu';
 import AppRoutes from "./components/Routes.jsx";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import AdminDashboard from './components/AdminDashboard';
 import SchoolMemberDashboard from "./components/SchoolMemberDashboard.jsx";
 import StudentDashboard from "./components/StudentDashboard.jsx";
+
+
 
 const theme = createTheme({
   palette: {
