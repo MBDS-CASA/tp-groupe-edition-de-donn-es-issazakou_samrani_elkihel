@@ -2,7 +2,14 @@ version: '3'
 services:
   react-app:
     build:
-      context: .
-      dockerfile: Dockerfile
+      context: Backend
+      dockerfile: Dockerfile.react
     ports:
-      - "5173:5173"
+      - "3000:3000"
+  node-app:
+    build:
+      context: Backend
+      dockerfile: Dockerfile.node
+    ports:
+      - "5000:5000"
+
